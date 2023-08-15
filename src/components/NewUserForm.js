@@ -9,7 +9,6 @@ class NewUserForm extends Component {
         lastName: ''
     };
 
-    
     handleSubmit = e => {
         e.preventDefault();
         const {firstName, lastName} = this.state
@@ -38,24 +37,24 @@ class NewUserForm extends Component {
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
-            <FormGroup>
-                <Label>
-                    First name
-                </Label>
-                <Input required type="text" value={this.state.firstName} onChange={this.handleFirstNameChange} />
-            </FormGroup>
-            <FormGroup>
-                <Label>
-                    Last name
-                </Label>
-                <Input required type="text" value={this.state.lastName} onChange={this.handleLastNameChange} />
-            </FormGroup>
-            <FormGroup>
-                <Button block outline type="submit" color="primary">
-                    Create
-                </Button>
-            </FormGroup>
-        </Form>
+                <FormGroup>
+                    <Label>
+                        First name
+                    </Label>
+                    <Input required type="text" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+                </FormGroup>
+                <FormGroup>
+                    <Label>
+                        Last name
+                    </Label>
+                    <Input required type="text" value={this.state.lastName} onChange={this.handleLastNameChange} />
+                </FormGroup>
+                <FormGroup>
+                    <Button block outline type="submit" color="primary">
+                        Create
+                    </Button>
+                </FormGroup>
+            </Form>
         );
     }
 }

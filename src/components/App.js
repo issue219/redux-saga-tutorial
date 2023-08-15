@@ -33,17 +33,17 @@ class App extends Component {
     const users = this.props.users;
     return (
       <div style={{margin: '0 auto', padding: '20px', maxWidth: '600px'}}>
-                <h2>
-                    Users
-                </h2>
-                <Alert color="danger" isOpen={!!this.props.users.error} toggle={this.handleCloseAlert}>
-                    {this.props.users.error}
-                </Alert>
-                <NewUserForm onSubmit={this.handleCreateUserSubmit} />
-                {!!users.items && !!users.items.length &&
-                <UserList onDeleteUserClick={this.handleDeleteUserClick} users={users.items}/>
-                }
-            </div>
+        <h2>
+            Users
+        </h2>
+        <Alert color="danger" isOpen={!!this.props.users.error} toggle={this.handleCloseAlert}>
+            {this.props.users.error}
+        </Alert>
+        <NewUserForm onSubmit={this.handleCreateUserSubmit} />
+        {!!users.items && !!users.items.length &&
+        <UserList onDeleteUserClick={this.handleDeleteUserClick} users={users.items}/>
+        }
+      </div>
     );
   }
 }

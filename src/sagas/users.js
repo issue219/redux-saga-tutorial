@@ -3,28 +3,27 @@ import * as actions from '../actions/users';
 import * as api from '../api/users';
 
 function* getUsers() {
-    try{
+    try {
         const result = yield call(api.getUsers);
         yield put(actions.getUsersSuccess({
             items: result.data.data
         }))
-    }catch(e){
+    } catch(e) {
         yield put(actions.usersError({
             error: 'An error occurred when trying to get the users'
         })); 
     }
 }
 
-
 function* watchGetUsersRequest() {
     yield takeEvery(actions.Types.GET_USERS_REQUEST, getUsers);
 }
 
 function* deleteUser(userId) {
-    try{
+    try {
         yield call(api.deleteUser, userId)
         yield call(getUsers);
-    }catch(e) {
+    } catch(e) {
         yield put(actions.usersError({
             error: 'An error occurred when trying to delete the user'
         }));
@@ -45,7 +44,7 @@ function* createUser({payload}) {
 
         yield call(getUsers);
 
-    }catch(e) {
+    } catch(e) {
         yield put(actions.usersError({
             error: 'An error occurred when trying to create the user'
         }));
@@ -63,5 +62,8 @@ const userSagas = [
     fork(watchDeleteUserRequest),
     fork(watchCreateUserRequest)
 ];
+
+
+
 
 export default userSagas;
