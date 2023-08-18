@@ -20,7 +20,9 @@ class App extends Component {
   };
 
   handleDeleteUserClick = (userId) => {
+    if(window.confirm("Bạn có chắc chắn muốn xoá người này không?") === true) {
     this.props.deleteUserRequest(userId);
+    }
   }
 
   handleCloseAlert = () => {

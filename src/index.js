@@ -14,7 +14,10 @@ import './style.css';
 const sagaMiddleware = createSagaMiddleware()
 
 //axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'https://cors-anywhere.herokuapp.com/https://rem.dbwebb.se/api';
+//axios.defaults.baseURL = 'https://cors-anywhere.herokuapp.com/https://rem.dbwebb.se/api';
+//axios.defaults.baseURL = 'https://rem.dbwebb.se/api';
+axios.defaults.baseURL = 'http://localhost:3005';
+//axios.defaults.baseURL = 'https://my-json-server.typicode.com/issue219/fake-api';
 
 const store = createStore(reducers, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(rootSaga);
